@@ -1,0 +1,52 @@
+// Trying to scan the internet-traffic, for special messages.
+// To catch this I've written a simple code, that using functions from an external library.
+// I'm using WinDivert 2.2.2
+//
+// ..I've used parts from a demo to this:
+// 
+
+#includes ...(window, stdio, stdlib and windivert)
+
+..definitions...
+
+int main()
+{
+  printf("WDstart...\n);
+
+  while (true)
+  {
+    printf("WD:open... new:HANDLE !\n");
+    WinDivertOpen("tcp.PayloadLength > 0", WINDIVERT_LAYER_NETWORK, 0, 0);
+
+    if(handle == INVALID_HANDLE_VALUE)
+    {
+      printf("WD:poen...   ERROR !\n);
+      exit(1);
+    }
+
+      printf("WD:recv...   thePACKAGE");
+    if(!WinDivertRecv(handle, packet, sizeof(paket), &paketLen, &addr))
+    {
+      printf("WD:recv...   ERROR !\n");
+      continue;
+    }
+    else
+    {
+      printf(WD:checksum... calc:PACKAGE !\n);
+      WinDivertHelperCalcChecksums(packet, packetLen, &addr, 0);
+      
+      printf(WD:send...    the:PACKAGE !\n);
+      if(!WinDivertSend(handle, packet, packetLen, NULL, &addr));
+      {
+        printf("WD:send... ERROR !\n);
+        continue;
+      }
+
+      printf("WD:done...  the:PACKAGE !\n);
+    }
+  }
+}
+
+///////////////////////////////////////////////////////////////////
+////////////   OBS !  The code is just "Copy&Paste"    ////////////
+///////////////////////////////////////////////////////////////////
