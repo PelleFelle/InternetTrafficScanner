@@ -1,0 +1,13 @@
+This would have been a note to my code, not a bit code...!
+OK I'm not a GITer and I'm just trying to get a hint of a problem...
+
+I have this tiny code who just using some external library-funktions.
+
+After some trubble I could pass the 1st function with success.
+With a lot of breakpoints I stepped into the 2nd function...
+..but the result was like to enter into a black hole i space !
+
+Absulutly nothing happens, but I can "stop" the debugging...
+Somewere "in the binary hyper space" the execution continuing ?
+
+Give me a clue why, PLZ !
